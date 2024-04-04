@@ -1,7 +1,8 @@
-import {showLoader, hideLoader} from "../main"
+import axios from "axios"
+import { showLoader, hideLoader } from "../main"
 import {inputValue} from "../main"
 
-export function fetchImages() {
+export async function fetchImages(currentPage) {
   showLoader()
   
   const searchParams = new URLSearchParams({
@@ -10,14 +11,15 @@ export function fetchImages() {
     image_type: "photo",
     orientation: "horizontal",
     safesearch: true,
+    lang: "en",
+    page: currentPage,
+    per_page: 15
   })
-  const url = `https://pixabay.com/api/?${searchParams}`
 
-  return fetch(url).then(response => {
-    if (!response.ok) { throw new Error(response.status) }
-    else {
-      hideLoader()
-      return response.json()
-    }
-  })
+  const BASE_URL = "https://pixabay.com"
+  const END_POINT = "/api/"
+  const url = BASE_URL + END_POINT
+  
+  const response = await axios.get(url, {searchParams})
+  return response.data
 }

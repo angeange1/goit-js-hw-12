@@ -12,6 +12,7 @@ export function renderImages(array) {
       message: `❌ Sorry, there are no images matching your search query. Please try again!`
     })
   }
+
   gallery.innerHTML = ""
 
   const markup = array.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {

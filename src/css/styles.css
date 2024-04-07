@@ -98,6 +98,23 @@ img {
   object-fit: cover;
 }
 
+.load-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.loading-more {
+  display: flex;
+  justify-content: center;
+}
+
 .loading {
   display: flex;
   justify-content: center;

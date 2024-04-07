@@ -13,8 +13,6 @@ export function renderImages(array) {
     })
   }
 
-  gallery.innerHTML = ""
-
   const markup = array.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
     return `<li class="image-item">
       <a href="${largeImageURL}">
